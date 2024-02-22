@@ -6,6 +6,10 @@
   "repository": "https://github.com/MrElkinFer/InstaClone.git",
   "author": "Elkin Arismendy <elk.orion@gmail.com>",
   "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "mongoose": "^8.2.0"
+  },
   "scripts": {
     "dev": "node ./index.js"
   }
