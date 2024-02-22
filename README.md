@@ -1,9 +1,5 @@
-# Copia de instagram
+## Instaclone
 
-## Como ejecutar
+Este es un clon de instagram
 
-Para ejecutar este proyecto use el siguiente comando
-
-```sh
-yarn start
-```
+El servidor está en la carpeta server.
