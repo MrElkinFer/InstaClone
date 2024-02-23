@@ -1,17 +1,21 @@
 const mongoose = require("mongoose");
-const {ApolloServer} = require("apollo-server");
-const typeDefs= require("./gql/schema.js")
-const resolvers = require("./gql/resolver.js")
+//const {ApolloServer} = require("apollo-server");
+//const typeDefs= require("./gql/schema.js")
+//const resolvers = require("./gql/resolver.js")
 require("dotenv").config({path:".env"});
 
 
 mongoose.connect(process.env.BBDD ,{
     useNewUrlParser: true,
     useUnifiedTopology: true
-}).then(() => server())//console.log("Conectado"))
+}).then(() => console.log("Conectado"))
 .catch(e => console.error(e))
 //ejectua
 
+
+
+//primer intento conexión graphql
+/*
 function server() {
     const serverApollo = new ApolloServer({
             typeDefs,
@@ -24,6 +28,7 @@ function server() {
     })
 
 }
+*/
 
 
 
