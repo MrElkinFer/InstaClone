@@ -10,8 +10,8 @@ const resolvers ={
         //Usuario
         Register: (_,{input}) => {
             console.log("Registrando usuario");
-
-            return null;
+            console.log(input);
+            return input;
         }
 
     }
