@@ -1,3 +1,5 @@
+const user = require("../models/user")
+
 const resolvers ={
     Query:{
         //user
@@ -9,9 +11,11 @@ const resolvers ={
     Mutation:{
         //Usuario
         Register: (_,{input}) => {
-            console.log("Registrando usuario");
-            console.log(input);
-            return input;
+           const newUser= input;
+           newUser.email =newUser.email.toLowerCase();
+           newUser.username = newUser.username.toLowerCase();
+           console.log(newUser);
+           return null;
         }
 
     }

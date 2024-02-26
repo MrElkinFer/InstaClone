@@ -1,5 +1,5 @@
 const mongoose= require("mongoose");
-const Schema = mongoose.schema;
+const Schema = mongoose.Schema;
 
 
 
@@ -18,19 +18,31 @@ const UserSchema = Schema({
 
     email:{
         type: String,
+        unique: true,
+        trim: true,
+        require: true,
     },
     avatar:{
         type: String,
+        trim: true,
     },
-    siteweb:{
+    siteWeb:{
         type: String,
+        trim: true,
     },
     description:{
-        type: String,},
+        type: String,
+        trim: true,
+    },
     password:{
-        type: String,},
+        type: String,
+        trim: true,
+        require: true,
+    },
     createAt:{
-        type: String,}  
+        type: Date,
+        default: Date.now(),
+    }
 
 });
 

@@ -12,6 +12,7 @@ type User{
     avatar: String
     password: String
 }
+
 input UserInput{
     name: String!
     username: String!
@@ -20,7 +21,6 @@ input UserInput{
 }
 
 type Mutation{
-    # Usuario
 
     Register(input: UserInput): User
 }
