@@ -22,8 +22,10 @@ function server() {
             resolvers,
     });
 
-    serverApollo.listen().then((Response)=>{
-        console.log("servidor ON");
+    serverApollo.listen().then(({url})=>{
+        console.log("########################################")
+        console.log(`servidor listo en la url: ${url}`);
+        console.log("########################################")
     })
 
 }
