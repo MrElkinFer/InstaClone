@@ -6,8 +6,8 @@ require("dotenv").config({path:".env"});
 
 
 mongoose.connect(process.env.BBDD ,{
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+    //useNewUrlParser: true,   //Estos dos tags enstan en desuso.
+    //useUnifiedTopology: true
 }).then(() => server())
 .catch(e => console.error(e))
 //ejectua

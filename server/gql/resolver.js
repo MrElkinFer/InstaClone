@@ -1,4 +1,4 @@
-const user = require("../models/user")
+const User = require("../models/user")
 
 const resolvers ={
     Query:{
@@ -10,10 +10,14 @@ const resolvers ={
     },
     Mutation:{
         //Usuario
-        Register: (_,{input}) => {
+        Register: async (_,{input}) => {
            const newUser= input;
            newUser.email =newUser.email.toLowerCase();
            newUser.username = newUser.username.toLowerCase();
+           
+           const {email,username,password} = newUser;
+           const foundEmail = await User.findOne({email});
+           console.log(foundEmail);
            console.log(newUser);
            return null;
         }
