@@ -1,6 +1,17 @@
-const User = require("../models/user")
-const bcryptjs = require("bcryptjs")
+const User = require("../models/user");
+const bcryptjs = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
+async function createToken(user, SECRET_KEY,expiresIn){
+    const {id, name, email, username} = user;
+    const pyload = {
+        id,
+        name,
+        email,
+        username,
+    };
+    return  jwt.sign(pyload, SECRET_KEY,{expiresIn});
+}
 
 async function register (input){
 
@@ -39,7 +50,33 @@ async function register (input){
     return null;
 }
 
+async function login (input){
+    const {email,password} = input;
+    //console.log("Email: "+ email);
+    //console.log("Password: "+ password);
+    
+    
+    const mensj = "Error en el correo la contraseña."; //guardo el mensaje en var a parte para que siempre sea el mismo.
+
+    // Comprobación de email: por la lectura de la fución no hay necesidad de poner jerarquia al email por encima de password, aparte ayuda que llame en los errores la misma frase 
+    const userFound = await User.findOne({email: email.toLowerCase()})
+    if(!userFound) throw new Error(mensj); //si el correo no existe
+
+    //comprobación de contraseña
+    const passwordSucess = await bcryptjs.compare(password, userFound.password); // bcryptjs permite encriptar y comparar con la contraseña sin encriptar
+    if(!passwordSucess) throw new Error(mensj); //si la contraseña no es correcta.
+
+
+    //console.log(createToken(userFound,process.env.SECRET_KEY,"24h"));
+
+    return {
+        token: createToken(userFound,process.env.SECRET_KEY,"24h"),
+    };
+
+}
+
 
 module.exports = {
-    register,
+    register, // Exporta la función register
+    login   //Exporta la función login 
 }

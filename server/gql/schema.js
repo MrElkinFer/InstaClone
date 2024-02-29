@@ -13,6 +13,15 @@ type User{
     password: String
 }
 
+type Token {
+    token: String
+}
+
+input LoginInput {
+    email: String!
+    password: String!
+}
+
 input UserInput{
     name: String!
     username: String!
@@ -23,6 +32,7 @@ input UserInput{
 type Mutation{
 
     Register(input: UserInput): User
+    Login(input: LoginInput): Token
 }
 
 type Query{

@@ -11,11 +11,10 @@ const resolvers ={
     },
     Mutation:{
         //Usuario
-        Register: async (_,{input}) => userController.register(input),
-           
-        
+        Register:  (_,{input}) => userController.register(input),
+        Login:  (_,{input}) => userController.login(input),        
 
     }
-};
+}; 
 
 module.exports = resolvers;
