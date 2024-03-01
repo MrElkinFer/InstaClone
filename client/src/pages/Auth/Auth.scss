@@ -1,5 +1,47 @@
 @import "../../index.scss";
 
 .auth {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: $background-grey-light;
+
+    img{
+        width: 250px;
+    }
+    
+
+    .container-form {
+        width: 400px;
+        background-color: $background-light;
+        padding: 20px 50px;
+        border: 1px solid $border-grey;
+        margin-top: 50px;
+        border-radius: 5px;
+    }
+
+    .change-form{
+        margin-top: 10px;
+        width: 400px;
+        background-color: $background-light;
+        padding: 20px 50px;
+        border-radius: 5px;
+        border: 1px solid $border-grey;
+        text-align: center;
+
+    }
+
+    span{
+        color: $action; // da el color azul
+        font-weight: bold; //Negrilla
+        margin-left: 10px; //Margen a la izquierda de 10 pixels
+        &:hover{
+            cursor: pointer;// se deja seleccionar por el puntero del mouse
+            text-decoration: underline; // cuando se pasa el cursor por arriba se adorna con linea debajo el texto
+
+        }
+    }
 
 }
