@@ -3,12 +3,16 @@ import {Form, Button} from "semantic-ui-react";
 import "./RegisterForm.scss";
 import {useFormik} from "formik";
 import * as Yup from "yup";
+import {useMutation} from "@apollo/client";
+import {REGISTER} from "../../../gql/user";
 
 
 
 export default function RegisterForm(props) {
 
   const {setShowLogin} = props;
+
+  const [register] = useMutation(REGISTER); // este es el llamado a schema de la mutation dentro del archivo user.js de la carpeta gql en /user
 
   const formik = useFormik({
     initialValues: initialValues(), // muestra los valores iniciales que lleva el formulario
@@ -19,9 +23,20 @@ export default function RegisterForm(props) {
       password: Yup.string().required("La contraseña es obligatoria").oneOf([Yup.ref("repeatPassword")], "La contraseña no coincide"), 
       repeatPassword: Yup.string().required("La contraseña es obligatoria").oneOf([Yup.ref("password"),"La contraseña no coincide"]),
     }),
-    onSubmit: (formValue)=>{
-      console.log("Formulario Enviado!!!");
-      console.log(formValue);
+    onSubmit: async (formData)=>{
+     try{
+      const newUser = formData;
+      delete newUser.repeatPassword;
+      console.log(newUser);
+      const result = await register({
+        variables: {"input": newUser}
+       }); 
+
+       console.log(result);
+
+     }catch(error){
+      console.log(error);
+     }
     }
   });
 
