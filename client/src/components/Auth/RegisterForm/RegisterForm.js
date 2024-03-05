@@ -3,6 +3,7 @@ import {Form, Button} from "semantic-ui-react";
 import "./RegisterForm.scss";
 import {useFormik} from "formik";
 import * as Yup from "yup";
+import {toast} from "react-toastify"
 import {useMutation} from "@apollo/client";
 import {REGISTER} from "../../../gql/user";
 
@@ -28,13 +29,16 @@ export default function RegisterForm(props) {
       const newUser = formData;
       delete newUser.repeatPassword;
       console.log(newUser);
-      const result = await register({
+      await register({
         variables: {"input": newUser}
        }); 
-
-       console.log(result);
+       toast.success("Usuario registrado correctamente!!"); // toast que se ejecuta si se puede registrar correctamente
+       setShowLogin(true)
 
      }catch(error){
+
+      toast.error(error.message);
+
       console.log(error);
      }
     }
