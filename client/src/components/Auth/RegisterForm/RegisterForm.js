@@ -27,7 +27,7 @@ export default function RegisterForm(props) {
     onSubmit: async (formData)=>{
      try{
       const newUser = formData;
-      delete newUser.repeatPassword;
+      delete newUser.repeatPassword;// borrando el registro de la contraseña repetida
       console.log(newUser);
       await register({
         variables: {"input": newUser}
