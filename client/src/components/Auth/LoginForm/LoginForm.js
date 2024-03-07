@@ -4,6 +4,7 @@ import {Button, Form} from "semantic-ui-react";
 import { useFormik } from 'formik';
 import {useMutation} from "@apollo/client";
 import {LOGIN} from "../../../gql/user";
+import {setToken} from "../../../utils/token";
 import * as yup from "yup";
 
 
@@ -24,18 +25,16 @@ export default function LoginForm() {
     onSubmit: async (formData)=>{
       try{
         setError("");
-         const result = await Login({
+         const {data} = await Login({
           variables:{
             input: formData
           }
          });
-         console.log(result); // para verificar si está recibiendo.
-
+         const {token}= data.Login;
+         setToken(token); 
       }catch(e){
         setError(e.message);
       }
-
-
     }
   })
 

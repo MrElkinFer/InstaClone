@@ -1,12 +1,23 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import client from "./config/apollo";
 import {ApolloProvider} from "@apollo/client";
 import {ToastContainer} from "react-toastify";
 import Auth from "./pages/Auth";
+//import { Token } from "graphql";
+import { getToken } from "./utils/token";
 
 
 export default function App() {
   const [auth, setAuth] = useState(undefined);
+
+  useEffect(()=>{
+    const token = getToken();
+    if(!token){
+      setAuth(null);
+    }else{
+      setAuth(token);
+    }
+  },[])
 
 
   return (
