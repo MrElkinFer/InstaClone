@@ -5,6 +5,7 @@ import { useFormik } from 'formik';
 import {useMutation} from "@apollo/client";
 import {LOGIN} from "../../../gql/user";
 import {setToken} from "../../../utils/token";
+import useAuth from '../../../hooks/useAuth';
 import * as yup from "yup";
 
 
@@ -13,6 +14,10 @@ export default function LoginForm() {
   const [error, setError] = useState(""); //para crear el aviso de alerta por contraseña o correo 
 
   const [Login] = useMutation(LOGIN);
+
+  const auth = useAuth;
+
+  const{setUser} = useAuth();
 
   const formik = useFormik({
     initialValues: inicialValLogin(),//la fución initialValLogin está abajo, fuera de la función por defecto.
@@ -31,7 +36,8 @@ export default function LoginForm() {
           }
          });
          const {token}= data.Login;
-         setToken(token); 
+         setToken(token);
+         setUser(token); 
       }catch(e){
         setError(e.message);
       }
