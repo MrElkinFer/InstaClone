@@ -4,7 +4,7 @@ import {Button, Form} from "semantic-ui-react";
 import { useFormik } from 'formik';
 import {useMutation} from "@apollo/client";
 import {LOGIN} from "../../../gql/user";
-import {setToken} from "../../../utils/token";
+import {setToken,decodeToken} from "../../../utils/token";
 import useAuth from '../../../hooks/useAuth';
 import * as yup from "yup";
 
@@ -37,7 +37,7 @@ export default function LoginForm() {
          });
          const {token}= data.Login;
          setToken(token);
-         setUser(token); 
+         setUser(decodeToken(token)); 
       }catch(e){
         setError(e.message);
       }

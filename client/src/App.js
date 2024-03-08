@@ -6,6 +6,7 @@ import Auth from "./pages/Auth";
 import AuthContext from "./context/AuthContext";
 //import { Token } from "graphql";
 import { getToken } from "./utils/token";
+import	Home from "./pages/Home";
 
 
 export default function App() {
@@ -43,7 +44,7 @@ export default function App() {
 
     <ApolloProvider client={client}>
       <AuthContext.Provider value={authData}>
-        {!auth ? <Auth/> : <h1>Estamos logeados</h1>}
+        {!auth ? <Auth/> : <Home/>}
 
         <ToastContainer
           position="top-right" 
