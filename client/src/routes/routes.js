@@ -9,16 +9,14 @@ const routes = createBrowserRouter ([
   {
     path: '/',
     element: <Home/>,
+    errorElement: <Error404/>
   },
 
   {
-    path: '/user',
+    path: '/:username',
     element: <User/>,
   },
 
-  {
-    element: <Error404/>,// Mirar si la lee por defecto
-  }
 
 ]);
 
