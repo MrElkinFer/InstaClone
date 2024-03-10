@@ -4,9 +4,9 @@ import {ApolloProvider} from "@apollo/client";
 import {ToastContainer} from "react-toastify";
 import Auth from "./pages/Auth";
 import AuthContext from "./context/AuthContext";
-//import { Token } from "graphql";
 import { getToken } from "./utils/token";
-import	Home from "./pages/Home";
+import Navigation from "./routes/Navigation";
+
 
 
 export default function App() {
@@ -44,7 +44,7 @@ export default function App() {
 
     <ApolloProvider client={client}>
       <AuthContext.Provider value={authData}>
-        {!auth ? <Auth/> : <Home/>}
+        {!auth ? <Auth/> : <Navigation/>}
 
         <ToastContainer
           position="top-right" 

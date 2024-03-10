@@ -1,10 +1,9 @@
-import React from 'react'
-import useAuth from '../../hooks/useAuth';
+import React from 'react';
+import "./Home.scss";
+
 
 export default function Home() {
 
-  const aut = useAuth();
-  console.log(aut);
   return (
     <div>
       <h1>

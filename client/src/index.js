@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'semantic-ui-css/semantic.min.css'
-import 'react-toastify/dist/ReactToastify.css'; // esto vien directamente de la página de toastify: https://fkhadra.github.io/react-toastify/installation
+import 'react-toastify/dist/ReactToastify.css'; // esto viene directamente de la página de toastify: https://fkhadra.github.io/react-toastify/installation
 import './index.scss'; // que sea index.scss y no index.css
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
