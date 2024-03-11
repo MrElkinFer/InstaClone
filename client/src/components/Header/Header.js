@@ -2,7 +2,8 @@ import React from 'react'
 import "./Header.scss";
 import {Container, Image, Grid} from "semantic-ui-react";
 import logo from "../../assets/png/instaclone.png";
-import {Link} from "react-router-dom";
+//import {Link} from "react-router-dom";
+import RightHeader from './RightHeader';
 
 
 
@@ -21,7 +22,7 @@ export default function Header() {
             <p>Buscador</p>
           </Grid.Column>
           <Grid.Column width={3}>
-            <p>Opciones</p>
+            <RightHeader/>
           </Grid.Column>
           
         </Grid>
