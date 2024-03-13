@@ -1,9 +1,10 @@
 import React from 'react';
 import "./RightHeader.scss";
 import {Icon, Image} from "semantic-ui-react";
-//import { Link } from "react-router-dom";
-import useAuth from "../../../hooks/useAuth";
+
+//import useAuth from "../../../hooks/useAuth";
 import imageNoFound from "../../../assets/png/avatar.png";
+//import { Link } from 'react-router-dom';
 
 export default function RightHeader() {
   //const {auth} = useAuth();
@@ -17,9 +18,11 @@ export default function RightHeader() {
         <a>
             <Icon name='plus'/>
         </a>
-        <a href='/'>
-            <Image src={imageNoFound} avatar />
-        </a>  
+        <a href='/user' >
+          <Image src={imageNoFound} avatar />
+        </a>
+            
+        
     </div>
   )
 }

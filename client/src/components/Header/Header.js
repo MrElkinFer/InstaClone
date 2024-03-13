@@ -11,13 +11,16 @@ export default function Header() {
   return (
     <div className='header'>
       <Container >
+        
         <Grid>
           <Grid.Column width={3}className='header__logo'>
-            {/*<Link><Image src={logo} alt= "Instaclone"/></Link>*/}
+            {/*<Link to={'/'}>
+              <Image src={logo} alt= "Instaclone"/>
+            </Link>*/}
             <a href='/'> 
               <Image src={logo} alt= "Instaclone"/>
             </a>
-           </Grid.Column>
+          </Grid.Column>
           <Grid.Column width={10}>
             <p>Buscador</p>
           </Grid.Column>
