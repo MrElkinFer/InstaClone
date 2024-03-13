@@ -4,7 +4,7 @@ import {ApolloProvider} from "@apollo/client";
 import {ToastContainer} from "react-toastify";
 import Auth from "./pages/Auth";
 import AuthContext from "./context/AuthContext";
-import { getToken } from "./utils/token";
+import { getToken,decodeToken } from "./utils/token";
 import Navigation from "./routes/Navigation";
 
 
