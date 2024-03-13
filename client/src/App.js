@@ -18,7 +18,7 @@ export default function App() {
     if(!token){
       setAuth(null);
     }else{
-      setAuth(token);
+      setAuth(decodeToken(token));
     }
   },[]);
 
