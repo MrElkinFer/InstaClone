@@ -75,8 +75,17 @@ async function login (input){
 
 }
 
+async function getUser(Id, username){
+    let user = null;
+    if(Id) user= await User.findById(Id);// findById para buscar tipos ID, no se deja con findOne
+    if(username) user = await User.findOne({username});
+    if(!user) throw new Error("El usuario no existe");
+
+    return user;
+}
 
 module.exports = {
     register, // Exporta la función register
-    login   //Exporta la función login 
+    login,   //Exporta la función login 
+    getUser,  //funcion que busca al usuario
 }

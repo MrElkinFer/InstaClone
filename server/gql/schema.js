@@ -36,7 +36,7 @@ type Mutation{
 }
 
 type Query{
-    getUser: User
+    getUser(Id: ID, username: String): User
 }
 
 `;
