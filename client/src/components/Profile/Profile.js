@@ -4,6 +4,7 @@ import "./Profile.scss";
 import { useQuery } from '@apollo/client';// para hacer el get de obtener datos
 import { GET_USER } from '../../gql/user';
 import imageNoFound from "../../assets/png/avatar.png"; 
+import UserNotFound from '../UserNoFound';
 
 
 
@@ -16,7 +17,7 @@ export default function Profile(props) {
   });
 
   if(loading)return null; // si no ha cargado no renderiza la pantalla: loading === false
-  if(error) return <h1>Usuario no encontrado</h1> 
+  if(error) return <UserNotFound/> 
 
   const {getUser}= data;// aquí estan los datos del usuario
 
