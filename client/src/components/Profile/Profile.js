@@ -5,7 +5,8 @@ import { useQuery } from '@apollo/client';// para hacer el get de obtener datos
 import { GET_USER } from '../../gql/user';
 import imageNoFound from "../../assets/png/avatar.png"; 
 import UserNotFound from '../UserNoFound';
-
+import ModelBasic from '../Modal/ModalBasic';
+import { useState } from 'react';
 
 
 export default function Profile(props) {
@@ -15,6 +16,8 @@ export default function Profile(props) {
   const {data, loading,error}= useQuery(GET_USER, {
     variables:{username},
   });
+
+  const [showModal, setShowModal] = useState(false); // estado para el ModelBasic emergente.
 
   if(loading)return null; // si no ha cargado no renderiza la pantalla: loading === false
   if(error) return <UserNotFound/> 
@@ -53,6 +56,12 @@ export default function Profile(props) {
           </div>
         </Grid.Column>
       </Grid>
+
+      <ModelBasic show={true} setShow={null} title='Subir Avatar'>
+        <p>Opciones...</p>
+        <p>Opciones...</p>
+        <p>Opciones...</p>
+      </ModelBasic>
     </>
   )
 }
