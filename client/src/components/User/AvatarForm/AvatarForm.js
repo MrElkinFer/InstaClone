@@ -9,7 +9,7 @@ export default function AvatarForm(props) {
     <div className='avatar-form'>
         <Button>Cargar una foto</Button>
         <Button>Eliminar Foto actual</Button>
-        <Button>Cancelar onClick={setShowModal(false)}</Button>
+        <Button  onClick ={()=>setShowModal(false)}>Cancelar</Button>
     </div>
   )
 }
