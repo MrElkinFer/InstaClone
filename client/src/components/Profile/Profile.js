@@ -6,7 +6,10 @@ import { GET_USER } from '../../gql/user';
 import imageNoFound from "../../assets/png/avatar.png"; 
 import UserNotFound from '../UserNoFound';
 import ModelBasic from '../Modal/ModalBasic';
+import AvatarForm from '../User/AvatarForm'; 
 import { useState } from 'react';
+import useAuth from '../../hooks/useAuth';
+
 
 
 export default function Profile(props) {
@@ -18,6 +21,11 @@ export default function Profile(props) {
   });
 
   const [showModal, setShowModal] = useState(false); // estado para el ModelBasic emergente.
+  const [titleModal, setTitleModal]= useState("");
+  const [childrenModal, setChildenModal] = useState(null);
+  const {auth} =useAuth();
+
+  
 
   if(loading)return null; // si no ha cargado no renderiza la pantalla: loading === false
   if(error) return <UserNotFound/> 
@@ -26,13 +34,27 @@ export default function Profile(props) {
 
   console.log(getUser);
 
+  const handlerModal = (type)=>{
+    switch (type) {
+      case "avatar":
+        setTitleModal("Cambiar foto de PERFIL");
+        setChildenModal(<AvatarForm setShowModal={setShowModal}/>);// se le pasa la propiedad del hook useState para que cierre el Model de cambio de foto de avatar con el botón cerrar 
+        setShowModal(true);
+        break;
+    
+      default:
+        break;
+    }
+
+  }
+
 
   return (
 
     <>
       <Grid className='profile'>
         <Grid.Column width={5} className='profile__left'>
-          <Image src={imageNoFound} avatar />
+          <Image src={imageNoFound} avatar onClick={()=> username === auth.username && handlerModal("avatar")}/>
         </Grid.Column>
         <Grid.Column width={11} className='profile__right'>
           <div>Header Profile</div>
@@ -57,10 +79,8 @@ export default function Profile(props) {
         </Grid.Column>
       </Grid>
 
-      <ModelBasic show={true} setShow={null} title='Subir Avatar'>
-        <p>Opciones...</p>
-        <p>Opciones...</p>
-        <p>Opciones...</p>
+      <ModelBasic show={showModal} setShow={setShowModal} title={titleModal}>
+        {childrenModal}
       </ModelBasic>
     </>
   )
