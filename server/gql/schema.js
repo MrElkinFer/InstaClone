@@ -17,6 +17,11 @@ type Token {
     token: String
 }
 
+type UpdateAvatar{
+    status: Boolean
+    urlAvatar: String
+}
+
 input LoginInput {
     email: String!
     password: String!
@@ -33,7 +38,10 @@ type Mutation{
 
     Register(input: UserInput): User
     Login(input: LoginInput): Token
+    
+    updateAvatar (file: String): UpdateAvatar
 }
+   
 
 type Query{
     getUser(Id: ID, username: String): User

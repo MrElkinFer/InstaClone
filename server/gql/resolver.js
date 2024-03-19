@@ -9,8 +9,8 @@ const resolvers ={
     Mutation:{
         //Usuario
         Register:  (_,{input}) => userController.register(input),
-        Login:  (_,{input}) => userController.login(input),        
-
+        Login:  (_,{input}) => userController.login(input), 
+        updateAvatar: (_,{file}) => userController.updateAvatar(file)
     }
 }; 
 

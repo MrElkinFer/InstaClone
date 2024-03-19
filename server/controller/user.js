@@ -84,8 +84,14 @@ async function getUser(Id, username){
     return user;
 }
 
+async function updateAvatar(file){
+    console.log(file)
+    return null;
+}
+
 module.exports = {
     register, // Exporta la función register
     login,   //Exporta la función login 
     getUser,  //funcion que busca al usuario
+    updateAvatar, // para cambiar el avatar
 }
