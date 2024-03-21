@@ -1,0 +1,7 @@
+instaclone-fer-admin
+
+
+Enlace de inicio de sesión en la consola:  https://533267094015.signin.aws.amazon.com/console
+
+arn:aws:iam::533267094015:user/instaclone-fer-admin
+

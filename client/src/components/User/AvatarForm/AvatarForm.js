@@ -11,6 +11,7 @@ export default function AvatarForm(props) {
 
     const [updateAvatar]= useMutation(UPDATE_AVATAR);
 
+    //const onDrop = useCallback((acceptedFile)=> {console.log(acceptedFile);},[])
     const onDrop = useCallback( async (acceptedFile)=>{
         const file = acceptedFile[0];
 

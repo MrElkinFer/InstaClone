@@ -4,7 +4,7 @@ const {gql} = require("apollo-server"); // Primera implementación
 
 const typeDefs = gql `
 
-scalar Upload ## Se pudo resolver con un comenteario del video así
+scalar Upload 
 
 type User{
     Id: ID
@@ -44,12 +44,12 @@ type Mutation{
     Register(input: UserInput): User
     Login(input: LoginInput): Token
     
-    updateAvatar (file: String): UpdateAvatar
+    updateAvatar (file: Upload!): UpdateAvatar
 }
    
 
 type Query{
-    getUser(Id: ID, username: Upload!): User
+    getUser(Id: ID, username: String): User
 }
 
 `;
