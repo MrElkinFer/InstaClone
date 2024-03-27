@@ -16,6 +16,7 @@ export default function AvatarForm(props) {
         const file = acceptedFile[0];
 
         try {
+            console.log(file); 
             const result = await updateAvatar({variables:{file}});
             console.log(result);
             

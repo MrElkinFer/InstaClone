@@ -1,6 +1,5 @@
 const {gql} = require("apollo-server"); // Primera implementación 
-
-
+//const{gql} = require ("apollo-server-express");////nuevas lineas
 
 const typeDefs = gql `
 

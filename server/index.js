@@ -1,26 +1,51 @@
-const mongoose = require("mongoose");
-const {ApolloServer} = require("apollo-server");
-const typeDefs= require("./gql/schema")
-const resolvers = require("./gql/resolver")
+const mongoose = require("mongoose"); // video
+const {ApolloServer} = require("apollo-server"); // video
+
+//const {ApolloServer} = require("apollo-server-express") // de posible solución
+//const express = require ("express")
+//const http =require("http");
+
+
+//const {graphqlUploadExpress}  = require ("graphql-upload/graphqlUploadExpress.mjs"); // posible solución
+
+const typeDefs = require("./gql/schema");
+const resolvers = require("./gql/resolver");
+
 require("dotenv").config({path:".env"});
 
 
 mongoose.connect(process.env.BBDD ,{
     //useNewUrlParser: true,   //Estos dos tags enstan en desuso.
     //useUnifiedTopology: true
+    
 }).then(() => server())
 .catch(e => console.error(e))
-//ejectua
+//ejectua   
 
 
 
 //primer intento conexión graphql
 
-function server() {
+function server() {  // async function server() { // nuevas lineas
     const serverApollo = new ApolloServer({
-            typeDefs,
-            resolvers,
+        typeDefs,
+        cors: true, //{ origin: ["http://localhost:3000", "https://studio.apollographql.com/"], credentials: true },
+        resolvers,
+        context:(res) => {
+            console.log("Hola")
+        }
     });
+
+    /*await serverApollo.start();//nuevas lineas
+    const app = express();//nuevas lineas
+    app.use(graphqlUploadExpress());//nuevas lineas
+    serverApollo.applyMiddleware({ app });//nuevas lineas
+    await new Promise((r) => app.listen({port: process.env.PORT || 4000}, r));//nuevas lineas
+    console.log("########################################");
+    console.log(`🚀 Servidor listo en: http://localhost:4000${serverApollo.graphqlPath}`);//nuevas lineas
+    console.log("########################################");*/
+
+   
 
     serverApollo.listen().then(({url})=>{
         console.log("########################################")
