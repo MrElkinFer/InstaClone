@@ -45,7 +45,7 @@ export default function RegisterForm(props) {
   });
 
 
-const onSubmit= () => {console.log("formulario enviado")};
+//const onSubmit= () => {console.log("formulario enviado")};
 
   return (
     <>

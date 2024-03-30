@@ -15,7 +15,7 @@ export default function LoginForm() {
 
   const [Login] = useMutation(LOGIN);
 
-  const auth = useAuth;
+  //const auth = useAuth;
 
   const{setUser} = useAuth();
 

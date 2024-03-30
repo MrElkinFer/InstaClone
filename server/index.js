@@ -29,7 +29,7 @@ mongoose.connect(process.env.BBDD ,{
 function server() {  // async function server() { // nuevas lineas
     const serverApollo = new ApolloServer({
         typeDefs,
-        cors: true, //{ origin: ["http://localhost:3000", "https://studio.apollographql.com/"], credentials: true },
+        cors:{ origin: ["http://localhost:3000", "https://studio.apollographql.com"], credentials: true },// linea para arreglar el cors
         resolvers,
         context:(res) => {
             console.log("Hola")
