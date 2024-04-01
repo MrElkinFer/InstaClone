@@ -1,18 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import hola from './config/apollo';
 import reportWebVitals from './reportWebVitals';
 import 'semantic-ui-css/semantic.min.css'
 import 'react-toastify/dist/ReactToastify.css'; // esto viene directamente de la página de toastify: https://fkhadra.github.io/react-toastify/installation
 import './index.scss'; // que sea index.scss y no index.css
-import { ApolloProvider} from '@apollo/client';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-    <ApolloProvider client={hola}>
-        <App />
-    </ApolloProvider>
+    <>
+        <App/>
+    </>
 );
 
 // If you want to start measuring performance in your app, pass a function

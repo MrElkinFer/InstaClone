@@ -18,6 +18,6 @@ const client =new ApolloClient({
     //link: uploadLink, 
 });
 
-export default client;
+//export default client;
 
 //Esta es la configueraión del cliente de Apollo.
