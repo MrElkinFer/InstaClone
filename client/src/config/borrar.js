@@ -4,11 +4,11 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import {createUploadLink} from 'apollo-upload-client';
 
 const uploadLink = createUploadLink({
-    uri: "http://localhost:4000",
-    credentials: "include"
+    uri: "http://localhost:4000/",
 });
 
-const client =new ApolloClient({
+const client = new ApolloClient({
+    
     connectToDevTools: true,
     cache: new InMemoryCache(),
     link: uploadLink,
@@ -42,6 +42,6 @@ const client =new ApolloClient({
     //link: uploadLink, 
 });
 
-//export default client;
+export default client;
 
 //Esta es la configueraión del cliente de Apollo.

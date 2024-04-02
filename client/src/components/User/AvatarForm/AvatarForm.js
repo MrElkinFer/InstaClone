@@ -5,7 +5,6 @@ import { useDropzone } from 'react-dropzone';
 import {useMutation} from '@apollo/client';
 import {UPDATE_AVATAR} from '../../../gql/user';
 
-
 export default function AvatarForm(props) {
     const {setShowModal} = props;
 

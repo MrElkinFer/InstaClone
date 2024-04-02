@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Grid, Image} from "semantic-ui-react";
 import "./Profile.scss";
 import { useQuery } from '@apollo/client';// para hacer el get de obtener datos
@@ -7,7 +7,6 @@ import imageNoFound from "../../assets/png/avatar.png";
 import UserNotFound from '../UserNoFound';
 import ModelBasic from '../Modal/ModalBasic';
 import AvatarForm from '../User/AvatarForm'; 
-import { useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 
 
