@@ -8,6 +8,7 @@ import UserNotFound from '../../UserNoFound';
 import ModelBasic from '../../Modal/ModalBasic';
 import AvatarForm from '../AvatarForm'; 
 import useAuth from '../../../hooks/useAuth';
+import SettingsForms from '../SettingsForms/SettingsForms';
 import HeaderProfile from './HeaderProfile';
 
 
@@ -41,13 +42,17 @@ export default function Profile(props) {
         setChildenModal(<AvatarForm setShowModal={setShowModal}/>);// se le pasa la propiedad del hook useState para que cierre el Model de cambio de foto de avatar con el botón cerrar 
         setShowModal(true);
         break;
+
+      case "settings":
+        setTitleModal("");
+        setChildenModal(<SettingsForms setShowModal ={setShowModal}/>);
+        setShowModal(true);
+        break;
     
       default:
         break;
     }
-
   }
-
 
   return (
 
@@ -57,7 +62,7 @@ export default function Profile(props) {
           <Image src={imageNoFound} avatar onClick={()=> username === auth.username && handlerModal("avatar")}/>
         </Grid.Column>
         <Grid.Column width={11} className='profile__right'>
-          <HeaderProfile getUser ={getUser} auth={auth}/>
+          <HeaderProfile getUser ={getUser} auth={auth} handlerModal={handlerModal}/>
           <div>Followers</div>
           <div className='other'>
             <p className='name'>{getUser.name}</p>
