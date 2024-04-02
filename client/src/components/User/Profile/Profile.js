@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import {Grid, Image} from "semantic-ui-react";
 import "./Profile.scss";
 import { useQuery } from '@apollo/client';// para hacer el get de obtener datos
-import { GET_USER } from '../../gql/user';
-import imageNoFound from "../../assets/png/avatar.png"; 
-import UserNotFound from '../UserNoFound';
-import ModelBasic from '../Modal/ModalBasic';
-import AvatarForm from '../User/AvatarForm'; 
-import useAuth from '../../hooks/useAuth';
+import { GET_USER } from '../../../gql/user';
+import imageNoFound from "../../../assets/png/avatar.png";
+import UserNotFound from '../../UserNoFound';
+import ModelBasic from '../../Modal/ModalBasic';
+import AvatarForm from '../AvatarForm'; 
+import useAuth from '../../../hooks/useAuth';
+import HeaderProfile from './HeaderProfile';
 
 
 
@@ -56,7 +57,7 @@ export default function Profile(props) {
           <Image src={imageNoFound} avatar onClick={()=> username === auth.username && handlerModal("avatar")}/>
         </Grid.Column>
         <Grid.Column width={11} className='profile__right'>
-          <div>Header Profile</div>
+          <HeaderProfile getUser ={getUser} auth={auth}/>
           <div>Followers</div>
           <div className='other'>
             <p className='name'>{getUser.name}</p>
