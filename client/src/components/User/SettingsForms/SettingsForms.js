@@ -9,11 +9,11 @@ import { useNavigate } from 'react-router-dom';
 export default function SettingsForms(props) {
     const {setShowModal} = props;
     const {logout} = useAuth();
-    const history = useNavigate();
+    const history = useNavigate(); // se calbio el useHistory por useNavuagate,
 
     const onLogout = () => {
         logout();
-       //    history.push("/");
+        history("/");
     };
 
   return (
