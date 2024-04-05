@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 export default function SettingsForms(props) {
-    const {setShowModal,setTitleModal, setChildenModal, currentEmail} = props;
+    const {setShowModal,setTitleModal, setChildenModal, currentEmail, refetch} = props;
     const {logout} = useAuth();
     const history = useNavigate(); // se cambio el useHistory por useNavuagate,
     const client =useApolloClient(); // se usa en este contexto para borrar la caché
@@ -31,6 +31,7 @@ export default function SettingsForms(props) {
       setChildenModal(<EmailForm 
         setShowModal={setShowModal}
         currentEmail={currentEmail}
+        refetch ={refetch}
         />);
     }
 

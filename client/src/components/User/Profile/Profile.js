@@ -17,7 +17,7 @@ export default function Profile(props) {
 
   const {username} = props;
   
-  const {data, loading, error}= useQuery(GET_USER, {
+  const {data, loading, error, refetch}= useQuery(GET_USER, {
     variables:{username},
   });
 
@@ -50,6 +50,7 @@ export default function Profile(props) {
           setTitleModal={setTitleModal} 
           setChildenModal={setChildenModal}
           currentEmail = {getUser.email}
+          refetch ={refetch}
           />);
         setShowModal(true);
         break;

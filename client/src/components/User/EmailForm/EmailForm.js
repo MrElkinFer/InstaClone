@@ -14,7 +14,7 @@ import { UPDATE_USER } from '../../../gql/user';
 export default function EmailForm(props) {
 
 
-    const { currentEmail, setShowModal } = props;
+    const { currentEmail, setShowModal, refetch } = props;
 
     const [ updateUser] = useMutation(UPDATE_USER);
 
@@ -45,10 +45,11 @@ export default function EmailForm(props) {
                 }else{
                     toast.success("Cambio con éxito");
                 }
+                refetch();
+                setShowModal(false);//para cerrar el modal
                                 
             } catch (error) {
                 toast.error("¡Algo ha fallado!!!");
-                console.log("Fer: " + error);
             }
         },
         })
