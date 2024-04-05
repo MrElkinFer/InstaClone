@@ -17,7 +17,7 @@ export default function Profile(props) {
 
   const {username} = props;
   
-  const {data, loading,error}= useQuery(GET_USER, {
+  const {data, loading, error}= useQuery(GET_USER, {
     variables:{username},
   });
 
@@ -44,10 +44,10 @@ export default function Profile(props) {
         break;
 
       case "settings":
-        setTitleModal("");
+        setTitleModal("Ajustes del Perfil");
         setChildenModal(<SettingsForms 
           setShowModal ={setShowModal}  
-          setTitleModal={setChildenModal} 
+          setTitleModal={setTitleModal} 
           setChildenModal={setChildenModal}
           currentEmail = {getUser.email}
           />);

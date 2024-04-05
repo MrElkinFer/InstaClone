@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 export default function SettingsForms(props) {
     const {setShowModal,setTitleModal, setChildenModal, currentEmail} = props;
     const {logout} = useAuth();
-    const history = useNavigate(); // se calbio el useHistory por useNavuagate,
+    const history = useNavigate(); // se cambio el useHistory por useNavuagate,
     const client =useApolloClient(); // se usa en este contexto para borrar la caché
 
     const onLogout = () => {

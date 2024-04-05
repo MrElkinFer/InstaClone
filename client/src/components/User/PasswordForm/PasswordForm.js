@@ -2,7 +2,7 @@ import React from 'react';
 import "./PasswordForm.scss";
 import { Button, Form } from 'semantic-ui-react';
 import {useFormik} from 'formik';
-//import * as Yup from 'yup'
+
 import * as  Yup from 'yup';
 
 

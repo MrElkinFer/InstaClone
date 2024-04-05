@@ -1,6 +1,8 @@
 import React from 'react';
 import "./EmailForm.scss";
 import { Button, Form } from 'semantic-ui-react';
+import { useMutation } from '@apollo/client';
+import "../../../gql/user";
 import * as  yup from 'yup';
 import { useFormik } from 'formik';
 
@@ -12,7 +14,9 @@ export default function EmailForm(props) {
 
     const { currentEmail, setShowModal } = props;
 
-    //console.log( currentEmail ); // devuelve undefined
+   // const [] = useMutation(USER_U); CONTUNÚA
+
+    //console.log( currentEmail );
 
     const formik = useFormik({
         initialValues: {
