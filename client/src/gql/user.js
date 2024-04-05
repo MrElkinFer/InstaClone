@@ -45,3 +45,9 @@ export const UPDATE_AVATAR = gql `
         }
     }
 `;
+
+export const UPDATE_USER = gql `
+    mutation updateUser($input: userUpdateInput) {
+        updateUser(input: $input)
+    }
+`;

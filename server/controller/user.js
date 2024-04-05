@@ -90,27 +90,38 @@ async function updateAvatar(file){
     return null;
 }
 
-async function updateUser(input, ctx){
+async function updateUser(input){
    
-    const { id }= ctx.user; // porqué el ctx trae el id y las otras varibles?
-    console.log("Esto trae:. ... " + id);
+    //const { id }= ctx.user; // mirar videos 83 para resolver la llegada de parámetros desde el contex para ver de donde viene el contex
+
+    const id = '65f4b7b0d0fb6beccedd37da';// id de test3@gmail.com
+
     try {
 
        
         // Contraseña:  
         if (input.currentPassword && input.newPassword) {
+            
             //Cambiar la contraseña:
-            const userFound = await User.findById('65e8d240b9e63f26a074284e');
+            const userFound = await User.findById(id);
             //const userFound = await User.findById(id);
             const passwordSucess = await bcryptjs.compare(
                 input.currentPassword,
                 userFound.password
             );
-            console.log( userFound );
-            console.log( passwordSucess );
+            //console.log( userFound );
+            //console.log( passwordSucess );
+
+            if(!passwordSucess) throw new Error("La contraseña es incorrecta");
+
+            const salt = await bcryptjs.genSaltSync(10);
+            const newPasswordCrypt = await bcryptjs.hash(input.newPassword, salt);
+
+            await User.findByIdAndUpdate(id, {password: newPasswordCrypt});
+
 
         } else {
-            await User.findByIdAndUpdate(id, input);
+            await User.findByIdAndUpdate(id, input);// el id no llega del context
         }
         return true;
         
