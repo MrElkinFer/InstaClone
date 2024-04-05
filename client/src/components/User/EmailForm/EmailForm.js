@@ -5,6 +5,8 @@ import { useMutation } from '@apollo/client';
 import "../../../gql/user";
 import * as  yup from 'yup';
 import { useFormik } from 'formik';
+import {toast} from 'react-toastify';
+import { UPDATE_USER } from '../../../gql/user';
 
 
 
@@ -14,7 +16,7 @@ export default function EmailForm(props) {
 
     const { currentEmail, setShowModal } = props;
 
-   // const [] = useMutation(USER_U); CONTUNÚA
+    const [ updateUser] = useMutation(UPDATE_USER);
 
     //console.log( currentEmail );
 
@@ -26,8 +28,28 @@ export default function EmailForm(props) {
             email: yup.string().email("Ingresa un correo valido").required("El correo es obligatorio"),
         }),
     
-        onSubmit: (formData) => {
-            console.log(formData);
+        onSubmit: async (formData) => {
+            //console.log(formData);
+
+            try {
+                const result = await updateUser({
+                    variables:{
+                        input: {
+                            email: formData.email,
+                        }
+                    }
+                })
+
+                if(!result.data.updateUser){
+                    toast.error("Pudo ocurrir Algo");
+                }else{
+                    toast.success("Cambio con éxito");
+                }
+                                
+            } catch (error) {
+                toast.error("¡Algo ha fallado!!!");
+                console.log("Fer: " + error);
+            }
         },
         })
 
@@ -35,7 +57,7 @@ export default function EmailForm(props) {
   return (
     <Form className='email-form' onSubmit={formik.handleSubmit}>
         <Form.Input 
-            placeholder="Escribe tu nuevo nombre" 
+            placeholder="Escribe tu nuevo correo" 
             name="email" 
            value={formik.values.email}
             onChange={formik.handleChange}

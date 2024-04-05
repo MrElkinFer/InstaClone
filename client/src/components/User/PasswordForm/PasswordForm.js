@@ -26,10 +26,10 @@ export default function PasswordForm() {
         // lo que se ejecuta si el formulario es correcto
          onSubmit: async (formValues) => {
 
-            console.log("Formulario enviado");
-            console.log(formValues);
+            //console.log("Formulario enviado");
+            //console.log(formValues);
             
-            /*try {
+            try {
                 const result = await updateUser({
                     variables:{ 
                         input: {
@@ -43,13 +43,13 @@ export default function PasswordForm() {
                 if(!result.data.updateUser){
                     toast.error("Error al cambiar la contraseña");
                 } else{
-                    //toast.success("La contraseña se ha modificado");
-                    console.log("contraseña ok");
+                    toast.success("La contraseña se ha modificado");
+                    //console.log("contraseña ok");
                 }
 
             } catch (error) {
                 toast.error("Error al cambiar la contraseña");
-            }*/
+            }
 
 
         }
