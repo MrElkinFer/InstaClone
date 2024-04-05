@@ -33,7 +33,7 @@ export default function Profile(props) {
 
   const {getUser}= data;// aquí estan los datos del usuario
 
-  console.log(getUser);
+ // console.log(getUser.email);
 
   const handlerModal = (type)=>{
     switch (type) {
@@ -45,14 +45,19 @@ export default function Profile(props) {
 
       case "settings":
         setTitleModal("");
-        setChildenModal(<SettingsForms setShowModal ={setShowModal}/>);
+        setChildenModal(<SettingsForms 
+          setShowModal ={setShowModal}  
+          setTitleModal={setChildenModal} 
+          setChildenModal={setChildenModal}
+          currentEmail = {getUser.email}
+          />);
         setShowModal(true);
         break;
     
       default:
         break;
     }
-  }
+  };
 
   return (
 

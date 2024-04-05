@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const bcryptjs = require("bcryptjs");
+const { isNonNullType } = require("graphql");
 const jwt = require("jsonwebtoken");
 
 async function createToken(user, SECRET_KEY,expiresIn){
@@ -89,9 +90,41 @@ async function updateAvatar(file){
     return null;
 }
 
+async function updateUser(input, ctx){
+   
+    const { id }= ctx.user; // porqué el ctx trae el id y las otras varibles?
+    console.log("Esto trae:. ... " + id);
+    try {
+
+       
+        // Contraseña:  
+        if (input.currentPassword && input.newPassword) {
+            //Cambiar la contraseña:
+            const userFound = await User.findById('65e8d240b9e63f26a074284e');
+            //const userFound = await User.findById(id);
+            const passwordSucess = await bcryptjs.compare(
+                input.currentPassword,
+                userFound.password
+            );
+            console.log( userFound );
+            console.log( passwordSucess );
+
+        } else {
+            await User.findByIdAndUpdate(id, input);
+        }
+        return true;
+        
+    } catch (error) {
+        console.log("Error Elkin: "+ error);
+        return false;
+    }
+
+}
+
 module.exports = {
     register, // Exporta la función register
     login,   //Exporta la función login 
     getUser,  //funcion que busca al usuario
     updateAvatar, // para cambiar el avatar
+    updateUser, // para cambiar varias opciones de usuario en general
 }

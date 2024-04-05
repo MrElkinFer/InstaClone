@@ -38,12 +38,22 @@ input UserInput{
     password: String!
 }
 
+input userUpdateInput {
+    name: String
+    email: String
+    currentPassword: String
+    newPassword: String
+    siteWeb: String
+    description: String
+}
+
 type Mutation{
 
     Register(input: UserInput): User
     Login(input: LoginInput): Token
-    
     updateAvatar (file: Upload!): UpdateAvatar
+    updateUser (input: userUpdateInput): Boolean 
+
 }
    
 

@@ -13,7 +13,8 @@ const resolvers ={
         //Usuario
         Register:  (_,{input}) => userController.register(input),
         Login:  (_,{input}) => userController.login(input), 
-        updateAvatar: (_,{file}) => userController.updateAvatar(file)
+        updateAvatar: (_,{file}) => userController.updateAvatar(file),
+        updateUser: (_,{input}, ctx) => userController.updateUser(input, ctx),
     }
 }; 
 
