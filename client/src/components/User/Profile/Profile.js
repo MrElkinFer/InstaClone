@@ -50,6 +50,7 @@ export default function Profile(props) {
           setTitleModal={setTitleModal} 
           setChildenModal={setChildenModal}
           currentEmail = {getUser.email}
+          currentDescription ={getUser.description}
           refetch ={refetch}
           />);
         setShowModal(true);
