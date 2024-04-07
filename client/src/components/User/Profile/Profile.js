@@ -33,7 +33,7 @@ export default function Profile(props) {
 
   const {getUser}= data;// aquí estan los datos del usuario
 
- // console.log(getUser.email);
+ //console.log(getUser.siteweb);
 
   const handlerModal = (type)=>{
     switch (type) {
@@ -51,6 +51,7 @@ export default function Profile(props) {
           setChildenModal={setChildenModal}
           currentEmail = {getUser.email}
           currentDescription ={getUser.description}
+          curretSiteweb={getUser.siteweb}
           refetch ={refetch}
           />);
         setShowModal(true);

@@ -43,7 +43,7 @@ input userUpdateInput {
     email: String
     currentPassword: String
     newPassword: String
-    siteWeb: String
+    siteweb: String
     description: String
 }
 
