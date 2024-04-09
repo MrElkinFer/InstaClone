@@ -2,6 +2,7 @@ import React from 'react'
 import "./Header.scss";
 import {Container, Image, Grid} from "semantic-ui-react";
 import logo from "../../assets/png/instaclone.png";
+import SearchUser from './SearchUser';
 
 
 import RightHeader from './RightHeader';
@@ -21,7 +22,7 @@ export default function Header() {
             </a>
           </Grid.Column>
           <Grid.Column width={10}>
-            <p>Buscador</p>
+            <SearchUser/>
           </Grid.Column>
           <Grid.Column width={3}>
            <RightHeader/>
