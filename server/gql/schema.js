@@ -59,6 +59,7 @@ type Mutation{
 
 type Query{
     getUser(Id: ID, username: String): User
+    searchUser( search: String):[User]
 }
 
 `;

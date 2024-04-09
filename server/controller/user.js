@@ -132,10 +132,22 @@ async function updateUser(input){
 
 }
 
+async function searchUser(search){
+    const users = await User.find({
+        name: { // con esta expresión se encuentran valores con conincidencia parcial al "nombre" buscado.
+            $regex: search,
+            $options: "i"
+        },
+    })
+
+    return users;
+}
+
 module.exports = {
     register, // Exporta la función register
     login,   //Exporta la función login 
     getUser,  //funcion que busca al usuario
     updateAvatar, // para cambiar el avatar
     updateUser, // para cambiar varias opciones de usuario en general
+    searchUser, //Barra de buscador de contactos
 }
