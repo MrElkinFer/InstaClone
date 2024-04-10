@@ -22,7 +22,7 @@ export default function Header() {
             </a>
           </Grid.Column>
           <Grid.Column width={10}>
-            <SearchUser/>
+          <SearchUser/>
           </Grid.Column>
           <Grid.Column width={3}>
            <RightHeader/>
