@@ -69,10 +69,7 @@ export const SEARCH = gql`
         searchUser(search: $search) {
             name
             avatar
-            siteweb
-            username
-            email
-            description
+            username            
         }
     }
 `;
