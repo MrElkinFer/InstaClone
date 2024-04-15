@@ -63,7 +63,7 @@ type Mutation{
 type Query{
     getUser(Id: ID, username: String): User
     searchUser( search: String ):[User]
-    isfollow( username: String!): Boolean
+    isFollow( username: String!): Boolean
 }
 
 `;
