@@ -54,12 +54,16 @@ type Mutation{
     updateAvatar (file: Upload!): UpdateAvatar
     updateUser (input: userUpdateInput): Boolean 
 
+    follow (username: String!): Boolean
+    unFollow(username: String!): Boolean
+
 }
    
 
 type Query{
     getUser(Id: ID, username: String): User
     searchUser( search: String ):[User]
+    isfollow( username: String!): Boolean
 }
 
 `;
