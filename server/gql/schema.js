@@ -54,7 +54,7 @@ type Mutation{
     updateAvatar (file: Upload!): UpdateAvatar
     updateUser (input: userUpdateInput): Boolean 
 
-    follow (username: String!): Boolean
+    follow(username: String!): Boolean
     unFollow(username: String!): Boolean
 
 }

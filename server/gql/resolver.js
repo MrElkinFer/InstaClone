@@ -10,7 +10,7 @@ const resolvers ={
         searchUser: (_, {search}) => userController.searchUser(search),
 
         //Follow:
-        isFollow: (_,{username},ctx)=> followController.isFollow(username,ctx),
+        isFollow: (_,{username}, ctx)=> followController.isFollow(username,ctx),
     },
 
 
@@ -23,7 +23,7 @@ const resolvers ={
 
         //Follow
         follow: (_, { username }, ctx) => followController.follow(username, ctx),
-        unFollow: (_,{username}, ctx) => followController.unFollow(username,ctx),
+        unFollow: (_,{ username }, ctx) => followController.unFollow(username,ctx),
     }
 }; 
 

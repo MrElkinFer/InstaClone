@@ -1,6 +1,7 @@
 const mongoose = require("mongoose"); // video
 const {ApolloServer} = require("apollo-server"); // video
-
+const typeDefs = require("./gql/schema");
+const resolvers = require("./gql/resolver");
 //const {ApolloServer} = require("apollo-server-express") // de posible solución
 //const express = require ("express")
 //const http =require("http");
@@ -8,8 +9,7 @@ const {ApolloServer} = require("apollo-server"); // video
 
 //const {graphqlUploadExpress}  = require ("graphql-upload/graphqlUploadExpress.mjs"); // posible solución
 
-const typeDefs = require("./gql/schema");
-const resolvers = require("./gql/resolver");
+
 
 require("dotenv").config({path:".env"});
 
@@ -20,9 +20,9 @@ mongoose.connect(process.env.BBDD ,{
     
 }).then(() => server())
 .catch(e => console.error(e))
-//ejectua   
 
 
+ 
 
 //primer intento conexión graphql
 
@@ -31,8 +31,12 @@ function server() {  // async function server() { // nuevas lineas
         typeDefs,
         cors:{ origin: ["http://localhost:3000", "https://studio.apollographql.com"], credentials: true },// linea para arreglar el cors
         resolvers,
-        context:(res) => {
-            console.log("Hola")
+        context:(request) => {
+            console.log("headers ",request);
+
+            return {user: {
+                id: new mongoose.Types.ObjectId("65f4b7b0d0fb6beccedd37da")  
+            }}
         }
     });
 
