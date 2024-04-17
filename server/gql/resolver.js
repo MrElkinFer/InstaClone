@@ -8,9 +8,8 @@ const resolvers ={
         //user
         getUser: (_,{Id, username}) => userController.getUser(Id, username),
         searchUser: (_, {search}) => userController.searchUser(search),
-
         //Follow:
-        isFollow: (_,{username}, ctx)=> followController.isFollow(username,ctx),
+        isFollow: (_,{ username }, ctx)=> followController.isFollow(username,ctx),
     },
 
 
@@ -20,7 +19,6 @@ const resolvers ={
         Login:  (_,{input}) => userController.login(input), 
         updateAvatar: (_,{file}) => userController.updateAvatar(file),
         updateUser: (_,{input}, ctx) => userController.updateUser(input, ctx),
-
         //Follow
         follow: (_, { username }, ctx) => followController.follow(username, ctx),
         unFollow: (_,{ username }, ctx) => followController.unFollow(username,ctx),

@@ -2,6 +2,8 @@ const mongoose = require("mongoose"); // video
 const {ApolloServer} = require("apollo-server"); // video
 const typeDefs = require("./gql/schema");
 const resolvers = require("./gql/resolver");
+const {jwtDecode} = require("jwt-decode");
+
 //const {ApolloServer} = require("apollo-server-express") // de posible solución
 //const express = require ("express")
 //const http =require("http");
@@ -19,10 +21,8 @@ mongoose.connect(process.env.BBDD ,{
     //useUnifiedTopology: true
     
 }).then(() => server())
-.catch(e => console.error(e))
+.catch(e => console.error(e))   
 
-
- 
 
 //primer intento conexión graphql
 
@@ -31,13 +31,37 @@ function server() {  // async function server() { // nuevas lineas
         typeDefs,
         cors:{ origin: ["http://localhost:3000", "https://studio.apollographql.com"], credentials: true },// linea para arreglar el cors
         resolvers,
-        context:(request) => {
+        context: ({req}) => {
+            const token = req.headers.authorization;
+            //console.log(token);// hasta aquí funciona min 9:00 vid 83
+            //console.log(jwtDecode(token));
+            const user = jwtDecode(token);
+            return { user };
+
+            /*if (token){
+                try {
+                    const user = jwt.verify(
+                        token,
+                    )
+                    return {
+                        user,
+                    };
+                } catch (error) {
+                    console.log("#### ERROR ####")
+                    console.log(error);
+                    throw new Error("Token invalido");
+                }
+            }*/
+        }
+
+
+       /* context:(request) => {
             console.log("headers ",request);
 
             return {user: {
                 id: new mongoose.Types.ObjectId("65f4b7b0d0fb6beccedd37da")  
             }}
-        }
+        }*/
     });
 
     /*await serverApollo.start();//nuevas lineas

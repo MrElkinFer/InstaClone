@@ -2,14 +2,15 @@ const Follow = require("../models/follow")
 const User = require("../models/user");
 
 
-async function follow(username,ctx){
+
+async function follow(username, ctx){
     //console.log(username);
     //console.log(ctx);
-    
     const userFound= await User.findOne({ username });
     if(!userFound) throw new Error("Usuario no encontrado");
-
-    console.log(userFound);
+    //return false;
+    
+    //console.log(userFound);
     try {
         const follow = new Follow({
             idUser: ctx.user.id,
@@ -22,33 +23,31 @@ async function follow(username,ctx){
     } catch (error) {
         console.log(error)
         return false;
-    }    
+    }  
+    
 }
 
-async function isFollow(username, ctx){
+async function isFollow( username, ctx ){
     const userFound = await User.findOne({ username });
-
     if(!userFound) throw new Error("Usuario no encontrado");
-
     const follow = await Follow.find({idUser: ctx.user.id}).where("follow").equals(userFound._id);
-
     if (follow.length > 0) {
-
         return true;
     }
-
     return false;
 }
 
-async function unFollow(username,ctx){
+async function unFollow( username, ctx ){
     const userFound = await User.findOne({ username });
-    const follow = await Follow.deleteOne( {idUser: ctx.user.id}).where("follow").equals(userFound._id);
 
-    if(follow.ok > 0){
+    const follow = await Follow.deleteOne( {idUser: ctx.user.id}).where("follow").equals(userFound._id);
+    
+    if(follow.deletedCount > 0){
         return true;
     }
-
     return false;
+
+    
 }
 
 module.exports = {

@@ -8,9 +8,7 @@ export default function HeaderProfile(props) {
 
     const {getUser,auth, handlerModal} = props;
     const { data, loading } = useQuery(IS_FOLLOW,{
-      variables:{
-        username: getUser.username,
-      },
+      variables:{username: getUser.username},
     });
     const[follow] = useMutation(FOLLOW);
 
