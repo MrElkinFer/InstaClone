@@ -1,4 +1,5 @@
 import {ApolloClient, InMemoryCache,createHttpLink} from "@apollo/client";
+import { getToken } from "../utils/token";
 //import { ApolloClient } from "@apollo/client";
 //import { InMemoryCache } from 'apollo-cache-inmemory';
 
@@ -9,6 +10,9 @@ const httplik = createHttpLink({
 //const uploadLink = ({
     uri: "http://localhost:4000",
     credentials: "include",
+    headers: {
+        authorization: getToken()// para que el cliente lea el token.
+    }
     //headers,
 });
 
