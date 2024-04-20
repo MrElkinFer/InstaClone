@@ -35,9 +35,14 @@ function server() {  // async function server() { // nuevas lineas
             const token = req.headers.authorization;
             //console.log(token);// hasta aquí funciona min 9:00 vid 83
             //console.log(jwtDecode(token));
-            const user = jwtDecode(token);
-            return { user };
-
+            if(!token){
+                return {};
+            }else{
+                const user = jwtDecode(token);
+                //console.log(user);
+                return { user };
+                
+            }
             /*if (token){
                 try {
                     const user = jwt.verify(

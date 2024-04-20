@@ -51,7 +51,15 @@ export const UPDATE_USER = gql `
         updateUser(input: $input)
     }
 `;
-
+export const SEARCH = gql`
+    query SearchUser($search: String) {
+        searchUser(search: $search) {
+            name
+            avatar
+            username            
+        }
+    }
+`;
 /*export const SEARCH = gql`
     query SearchUser($search: String) {
         (search: $search) {
@@ -64,12 +72,3 @@ export const UPDATE_USER = gql `
     }
 }`;*/
 
-export const SEARCH = gql`
-    query SearchUser($search: String) {
-        searchUser(search: $search) {
-            name
-            avatar
-            username            
-        }
-    }
-`;

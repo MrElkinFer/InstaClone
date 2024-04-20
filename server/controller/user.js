@@ -1,6 +1,5 @@
 const User = require("../models/user");
 const bcryptjs = require("bcryptjs");
-//const { isNonNullType } = require("graphql");
 const jwt = require("jsonwebtoken");
 
 async function createToken(user, SECRET_KEY,expiresIn){

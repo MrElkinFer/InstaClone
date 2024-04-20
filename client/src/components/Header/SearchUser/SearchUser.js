@@ -15,7 +15,7 @@ export default function SearchUser() {
       variables:{ search },// si la llamo igual que seach no  hay problema y puedo llamarla así no más: "varibles: {search}" pero es mejor que primero entienda que es así.
     });
  
-    console.log(results);
+    //console.log(data);
     
 
     useEffect(() => {

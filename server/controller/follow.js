@@ -10,7 +10,8 @@ async function follow(username, ctx){
     if(!userFound) throw new Error("Usuario no encontrado");
     //return false;
     
-    //console.log(userFound);
+    //console.log(ctx);
+
     try {
         const follow = new Follow({
             idUser: ctx.user.id,
@@ -31,23 +32,23 @@ async function isFollow( username, ctx ){
     const userFound = await User.findOne({ username });
     if(!userFound) throw new Error("Usuario no encontrado");
     const follow = await Follow.find({idUser: ctx.user.id}).where("follow").equals(userFound._id);
+    //console.log(ctx.user.id); 
     if (follow.length > 0) {
         return true;
     }
     return false;
+    
 }
 
 async function unFollow( username, ctx ){
     const userFound = await User.findOne({ username });
 
     const follow = await Follow.deleteOne( {idUser: ctx.user.id}).where("follow").equals(userFound._id);
-    
+    //console.log(follow);    
     if(follow.deletedCount > 0){
         return true;
     }
     return false;
-
-    
 }
 
 module.exports = {

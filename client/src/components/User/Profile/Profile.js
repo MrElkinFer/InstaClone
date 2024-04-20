@@ -10,6 +10,7 @@ import AvatarForm from '../AvatarForm';
 import useAuth from '../../../hooks/useAuth';
 import SettingsForms from '../SettingsForms/SettingsForms';
 import HeaderProfile from './HeaderProfile';
+import Followes from './Followes';
 
 
 
@@ -71,7 +72,7 @@ export default function Profile(props) {
         </Grid.Column>
         <Grid.Column width={11} className='profile__right'>
           <HeaderProfile getUser ={getUser} auth={auth} handlerModal={handlerModal}/>
-          <div>Followers</div>
+          <Followes username ={username}/>
           <div className='other'>
             <p className='name'>{getUser.name}</p>
             
