@@ -64,6 +64,7 @@ type Query{
     getUser(Id: ID, username: String): User
     searchUser( search: String ):[User]
     isFollow( username: String!): Boolean
+    getFollowers( username: String! ): [User]
 }
 
 `;

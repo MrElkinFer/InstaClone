@@ -10,6 +10,7 @@ const resolvers ={
         searchUser: (_, {search}) => userController.searchUser(search),
         //Follow:
         isFollow: (_,{ username }, ctx)=> followController.isFollow(username,ctx),
+        getFollowers: (_,{username})=> followController.getFollowers(username),
     },
 
 
