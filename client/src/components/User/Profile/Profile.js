@@ -72,7 +72,7 @@ export default function Profile(props) {
         </Grid.Column>
         <Grid.Column width={11} className='profile__right'>
           <HeaderProfile getUser ={getUser} auth={auth} handlerModal={handlerModal}/>
-          <Followes username ={username}/>
+          <Followes username = {username}/>
           <div className='other'>
             <p className='name'>{getUser.name}</p>
             

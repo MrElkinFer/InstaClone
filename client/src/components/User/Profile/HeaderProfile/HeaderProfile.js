@@ -12,7 +12,7 @@ export default function HeaderProfile(props) {
       variables: {username: getUser.username},
     });
 
-    console.log(query.data);// en el video (Vid. 118) se hace destructuring
+   // console.log(query.data);// en el video (Vid. 118) se hace destructuring
     const [follow] = useMutation(FOLLOW);
     const [unFollow] = useMutation(UN_FOLLOW);
 
@@ -48,9 +48,12 @@ export default function HeaderProfile(props) {
     const buttonFollow = ()=>{
 
       if (query.data.isFollow) {
+        //console.log(query.data);// prueba para ver como se llama un query
         return(
           <Button className='btn-danger' onClick={OnUnfollow}>Dejar de seguir</Button>
         );
+        
+        console.log()
       } else {
         return(
           <Button className='btn-action' onClick={onFollow}>Seguir</Button>

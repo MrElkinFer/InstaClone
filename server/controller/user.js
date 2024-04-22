@@ -91,9 +91,9 @@ async function updateAvatar(file){
 
 async function updateUser(input){
    
-    //const { id }= ctx.user; // mirar videos 83 para resolver la llegada de parámetros desde el contex para ver de donde viene el contex
+    const { id }= ctx.user; // mirar videos 83 para resolver la llegada de parámetros desde el contex para ver de donde viene el contex
 
-    const id = '65f4b7b0d0fb6beccedd37da';// id de test3@gmail.com
+    //const id = '65f4b7b0d0fb6beccedd37da';// id de test3@gmail.com
 
     try {
 
