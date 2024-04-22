@@ -89,7 +89,7 @@ async function updateAvatar(file){
     return null;
 }
 
-async function updateUser(input){
+async function updateUser(input, ctx){
    
     const { id }= ctx.user; // mirar videos 83 para resolver la llegada de parámetros desde el contex para ver de donde viene el contex
 

@@ -47,6 +47,7 @@ export default function WebsiteForm(props) {
 
             } catch (error) {
                 toast.error("Algo salio mal")
+                console.log(error);
             }
            
             
