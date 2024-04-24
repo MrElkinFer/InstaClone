@@ -1,5 +1,6 @@
 const userController = require("../controller/user");
 const followController = require("../controller/follow");
+const publication = require("../models/publication");
 
 const resolvers ={
 
@@ -24,6 +25,8 @@ const resolvers ={
         //Follow
         follow: (_, { username }, ctx) => followController.follow(username, ctx),
         unFollow: (_,{ username }, ctx) => followController.unFollow(username,ctx),
+        //Publication
+        publish: (_, { file},ctx) => publication.publish(file,ctx),
     }
 }; 
 

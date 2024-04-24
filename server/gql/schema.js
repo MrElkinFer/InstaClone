@@ -26,6 +26,11 @@ type UpdateAvatar{
     urlAvatar: String
 }
 
+type Publish{
+    status: Boolean
+    urlFile: String
+}
+
 input LoginInput {
     email: String!
     password: String!
@@ -56,6 +61,8 @@ type Mutation{
 
     follow(username: String!): Boolean
     unFollow(username: String!): Boolean
+
+    publish(file: Upload): Publish
 
 }
    
