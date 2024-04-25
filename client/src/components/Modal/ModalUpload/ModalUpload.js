@@ -1,12 +1,15 @@
 import React, {useCallback, useState} from 'react';
 import {Modal, Icon, Button, Dimmer, Loader, Input} from 'semantic-ui-react';
 import { useDropzone} from 'react-dropzone';
+import { useMutation } from '@apollo/client';
+import { PUBLISH } from '../../../gql/publication';
 import './ModalUpload.scss';
 
 
 export default function ModalUpload(props) {
     const {show, setShow} = props;
     const [fileUpload, setFileUpload] = useState(null);
+    const [ publish ] = useMutation(PUBLISH);
     //console.log(fileUpload);
 
     const onDrop = useCallback((acceptedFile) =>{
@@ -19,7 +22,7 @@ export default function ModalUpload(props) {
         
     });
 
-    const {getRootProps,getInputProps }= useDropzone({// las funciones que retornan getRootProops y getInputProps son del hook useDrop
+    const {getRootProps,getInputProps }= useDropzone({// las funciones que retornan getRootProops y getInputProps son del hook useDrop que se usa para arrastrar un archivo y soltarlo en un cuadro de captura de archivo
         accept:"image/jpeg, image/png",
         noKeyboard: true,
         multiple: false,
@@ -31,8 +34,18 @@ export default function ModalUpload(props) {
         setShow(false);
     };
 
-    const onPublish = ()=>{
-        console.log("publicando...");
+  
+
+    const onPublish = async() =>{
+       try {
+        const result = await publish({
+            variables:{
+                file: fileUpload.file,
+            },
+        });
+       } catch (error) {
+          console.log(error);
+       }
     };
 
 

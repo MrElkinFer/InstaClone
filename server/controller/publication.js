@@ -1,11 +1,13 @@
 const Publication = require("../models/publication");
 
 
-function publish(file, ctx){
+async function publish(file, ctx){
+    console.log(file);
+    console.log(ctx);
     console.log("Publicando..");
     return null;
 }
 
 module.exports = {
-    publish,
-}
+    publish, // Publicación de imagenes
+};
