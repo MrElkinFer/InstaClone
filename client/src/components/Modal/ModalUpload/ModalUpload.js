@@ -38,6 +38,7 @@ export default function ModalUpload(props) {
 
     const onPublish = async() =>{
        try {
+        console.log(fileUpload);
         const result = await publish({
             variables:{
                 file: fileUpload.file,

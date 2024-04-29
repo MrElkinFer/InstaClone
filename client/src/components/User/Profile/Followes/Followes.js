@@ -8,7 +8,7 @@ import ListUsers from '../../ListUsers/ListUsers';
 
 
 export default function Followes(props) {
-    const {username} = props;
+    const {username, totalPublications} = props;
 
     const [showModal, setShowModal] = useState(false);
     const [titleModal, setTitleModal] = useState("");
@@ -58,7 +58,7 @@ export default function Followes(props) {
   return (
     <>
     <div className='followers'>
-      <p><span>123</span> Publicaciones</p>
+      <p><span>{totalPublications}</span> Publicaciones</p>
       <p className='link' onClick={openFollowers}><span >{size(getFollowers)}</span> Seguidores</p>
       <p className='link' onClick={openFolloweds}><span>{size(getFolloweds)}</span> Seguidos</p>
     </div>

@@ -6,3 +6,15 @@ mutation publish($file: Upload){
         status
     }
 }`;
+
+export const GET_PUBLICATIONS =gql`
+query GetPublications($username: String!) {
+  getPublications(username: $username) {
+    id
+    idUser
+    file
+    typeFile
+    createAt
+  }
+}
+`;

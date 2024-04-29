@@ -28,8 +28,15 @@ type UpdateAvatar{
 
 type Publish{
     status: Boolean
-    urlFile: String
-    
+    urlFile: String 
+}
+
+type Publication{ 
+    id: ID
+    idUser: ID
+    file: String
+    typeFile: String
+    createAt: String
 }
 
 input LoginInput {
@@ -73,6 +80,7 @@ type Query{
     isFollow( username: String!): Boolean
     getFollowers( username: String! ): [User]
     getFolloweds( username: String! ): [User]
+    getPublications( username: String!): [Publication]
 }
 
 `;
