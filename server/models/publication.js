@@ -21,5 +21,5 @@ const PublicationSchema= Schema({
         default: Date.now(),
     },
 });
-
+//{ file, idUser: , typeFile: "image/jpg",}
 module.exports = mongoose.model("Publication", PublicationSchema);

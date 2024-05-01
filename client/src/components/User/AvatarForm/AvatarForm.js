@@ -5,6 +5,10 @@ import { useDropzone } from 'react-dropzone';
 import {useMutation} from '@apollo/client';
 import {UPDATE_AVATAR} from '../../../gql/user';
 
+///___________________________________
+//const awsClientUploadImage =require ('../../../../utils/aws-upload-image');
+///___________________________________
+
 export default function AvatarForm(props) {
     const {setShowModal} = props;
 
@@ -16,6 +20,8 @@ export default function AvatarForm(props) {
 
         try {
             console.log(file); 
+            const dir = URL.createObjectURL(file);
+            console.log(dir);
             const result = await updateAvatar({variables:{file}});
             console.log(result);
             
@@ -40,3 +46,4 @@ const {getRootProps,getInputProps} = useDropzone({
     </div>
   )
 }
+

@@ -3,10 +3,11 @@ const aws = require("../utils/aws-upload-image");
 const User = require("../models/user");
 
 async function publish(file, ctx){// se necesita desarrollar la forma de mandar imágenes a s3 primero.
-   // console.log(file);
+    console.log(file);
+    const newPublication = await Publication.create ({ file, idUser: ctx.user.id, typeFile: "image/jpg",});
     //console.log(ctx); 
     //console.log("Publicando..");
-    return null;
+    return newPublication;
 }
 
 async function getPublications( username ){

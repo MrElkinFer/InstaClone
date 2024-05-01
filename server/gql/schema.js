@@ -70,7 +70,7 @@ type Mutation{
     follow(username: String!): Boolean
     unFollow(username: String!): Boolean
 
-    publish(file: Upload): Publish
+    publish(file: String!): Publish
 }
    
 

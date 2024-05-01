@@ -41,7 +41,7 @@ export default function ModalUpload(props) {
         console.log(fileUpload);
         const result = await publish({
             variables:{
-                file: fileUpload.file,
+                file: `https://picsum.photos/seed/${Math.round(Math.random()*1002)}/600/300`,
             },
         });
        } catch (error) {

@@ -1,7 +1,7 @@
 import {gql} from '@apollo/client';
 
 export const PUBLISH = gql`
-mutation publish($file: Upload){
+mutation publish($file: String!){
     publish(file: $file){
         status
     }
