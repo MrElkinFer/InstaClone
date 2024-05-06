@@ -1,6 +1,7 @@
 const userController = require("../controller/user");
 const followController = require("../controller/follow");
 const publicationController = require("../controller/publication");
+const commentController= require("../controller/comment");
 
 const resolvers ={
 
@@ -15,6 +16,8 @@ const resolvers ={
         getFolloweds: (_,{username}) => followController.getFolloweds(username),
         //Publication
         getPublications: (_, {username})=> publicationController.getPublications(username),
+        //Comment
+        getComments: (_,{idPublication}) => commentController.getComments(idPublication),
     },
 
 
@@ -29,6 +32,8 @@ const resolvers ={
         unFollow: (_,{ username }, ctx) => followController.unFollow(username,ctx),
         //Publication
         publish: (_,{ file }, ctx) => publicationController.publish(file,ctx),
+        //Comment
+        addComment: (_,{input}, ctx) => commentController.addComment(input,ctx),
     },
 }; 
 

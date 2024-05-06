@@ -9,7 +9,7 @@ export default function PreviewPublication(props) {
   const {publication} = props;
 
   const [showModal,setShowModal] = useState(false);
-  console.log(publication);
+  //console.log(publication);
 
     return (
     <>

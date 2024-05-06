@@ -38,6 +38,12 @@ type Publication{
     typeFile: String
     createAt: String
 }
+type commEnt{
+    idPublication: ID
+    idUser: User
+    comment: String
+    createAt: String
+}
 
 input LoginInput {
     email: String!
@@ -60,6 +66,11 @@ input userUpdateInput {
     description: String
 }
 
+input commentInput{
+    idPublication: ID
+    comment: String
+}
+
 type Mutation{
 
     Register(input: UserInput): User
@@ -71,6 +82,8 @@ type Mutation{
     unFollow(username: String!): Boolean
 
     publish(file: String!): Publish
+
+    addComment(input: commentInput): commEnt
 }
    
 
@@ -81,6 +94,7 @@ type Query{
     getFollowers( username: String! ): [User]
     getFolloweds( username: String! ): [User]
     getPublications( username: String!): [Publication]
+    getComments(idPublication: ID!): [commEnt]
 }
 
 `;
