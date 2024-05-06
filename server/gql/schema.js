@@ -89,6 +89,8 @@ type Mutation{
     publish(file: String!): Publish
 
     addComment(input: commentInput): commEnt
+    addLike (idPublication: ID!): Boolean 
+    deleteLike (idPublication: ID!): Boolean
 }
    
 
@@ -102,6 +104,7 @@ type Query{
     getComments(idPublication: ID!): [commEnt]
     PruebaUser(idUser: ID ): User
     PruebaUserDos(idPublication: ID): [tipoCombinado]
+    isLike(idPublication: ID!): Boolean
 }
 
 `;
