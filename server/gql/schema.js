@@ -44,6 +44,11 @@ type commEnt{
     comment: String
     createAt: String
 }
+type tipoCombinado{
+    idPublication: ID
+    idUser: User
+    comment: String
+}
 
 input LoginInput {
     email: String!
@@ -95,6 +100,8 @@ type Query{
     getFolloweds( username: String! ): [User]
     getPublications( username: String!): [Publication]
     getComments(idPublication: ID!): [commEnt]
+    PruebaUser(idUser: ID ): User
+    PruebaUserDos(idPublication: ID): [tipoCombinado]
 }
 
 `;

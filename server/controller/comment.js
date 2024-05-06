@@ -1,4 +1,7 @@
 const Comment = require("../models/comment");
+const User = require("../models/user");//borrar
+const Publication = require("../models/publication"); // borrar
+
 
 function addComment(input,ctx){
     try {
@@ -21,8 +24,22 @@ async function getComments(idPublication){
     return result; 
 }
 
+async function PruebaUser(idUser){
+    let result = null;
+    result = await User.findById(idUser);
+    return result;
+}
+
+async function PruebaUserDos(idPublication){
+    let result = null;
+    result = await Comment.find({idPublication});
+    return result;
+}
+
 
 module.exports = {
     addComment,
     getComments,
+    PruebaUser,//borrar
+    PruebaUserDos,//borrar
 };

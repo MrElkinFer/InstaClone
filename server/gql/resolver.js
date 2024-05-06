@@ -18,6 +18,8 @@ const resolvers ={
         getPublications: (_, {username})=> publicationController.getPublications(username),
         //Comment
         getComments: (_,{idPublication}) => commentController.getComments(idPublication),
+        PruebaUser:(_,{idUser})=> commentController.PruebaUser(idUser),// Borrar cuando termine la prueba.
+        PruebaUserDos:(_, {idPublication})=> commentController.PruebaUserDos(idPublication)
     },
 
 
