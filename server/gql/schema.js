@@ -105,6 +105,7 @@ type Query{
     PruebaUser(idUser: ID ): User
     PruebaUserDos(idPublication: ID): [tipoCombinado]
     isLike(idPublication: ID!): Boolean
+    countLikes(idPublication: ID!): Int
 }
 
 `;

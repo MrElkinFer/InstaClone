@@ -1,5 +1,6 @@
 const Like = require("../models/like");
 
+
 function addLike(idPublication,ctx){
     try {
         const like = new Like({
@@ -37,10 +38,21 @@ async function isLike(idPublication,ctx){
     } catch (error) {
         return false;
     }
+};
+
+async function countLikes(idPublication){
+    try {
+        const result = await Like.countDocuments({idPublication});
+        return result;        
+    } catch (error) {
+        console.log(error);
+        return 0;
+    }
 }
 
 module.exports = {
     addLike,
     deleteLike,
     isLike,
+    countLikes,
 };

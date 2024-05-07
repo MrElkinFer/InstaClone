@@ -24,6 +24,7 @@ const resolvers ={
         PruebaUserDos:(_, {idPublication})=> commentController.PruebaUserDos(idPublication),
         //Like
         isLike: (_,{idPublication}, ctx) => likeController.isLike(idPublication, ctx),
+        countLikes: (_,{idPublication}) => likeController.countLikes(idPublication),
     },
 
 
