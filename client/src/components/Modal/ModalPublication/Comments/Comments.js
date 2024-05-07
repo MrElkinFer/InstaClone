@@ -22,8 +22,8 @@ useEffect(()=>{
 if(loading) return null;
 
 const {getComments} = data;
-//console.log(publication);
-//console.log(getComments);
+console.log(publication);
+console.log(getComments);
 
   return (  
     <div className='comments'>
