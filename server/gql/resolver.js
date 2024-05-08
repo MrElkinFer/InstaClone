@@ -18,6 +18,7 @@ const resolvers ={
         getFolloweds: (_,{username}) => followController.getFolloweds(username),
         //Publication
         getPublications: (_, {username})=> publicationController.getPublications(username),
+        getPublicationsFolloweds: (_,{},ctx)=> publicationController.getPublicationsFolloweds(ctx),
         //Comment
         getComments: (_,{idPublication}) => commentController.getComments(idPublication),
         PruebaUser:(_,{idUser})=> commentController.PruebaUser(idUser),// Borrar cuando termine la prueba.

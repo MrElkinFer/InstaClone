@@ -18,3 +18,18 @@ query GetPublications($username: String!) {
   }
 }
 `;
+
+export const GET_PUBLICATIONS_FOLLOWEDS = gql`
+query GetPublicationsFolloweds {
+  getPublicationsFolloweds {
+    id
+    idUser {
+      avatar
+      name
+      username
+    }
+    file
+    createAd
+    typeFile
+  }
+}`;

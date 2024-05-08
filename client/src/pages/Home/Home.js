@@ -1,7 +1,8 @@
 import React from 'react';
 import "./Home.scss";
-import { Link } from 'react-router-dom';
-import { Container,Grid} from 'semantic-ui-react';
+import Feed from '../../components/Home/Feed';
+
+import { Container, Grid, GridColumn } from 'semantic-ui-react';
 
 
 export default function Home() {
@@ -10,9 +11,12 @@ export default function Home() {
     <div className='home'>
       <Container>
         <Grid>
-          <Grid.Column width={3}>
-            <Link to={"/fer"}>Estamos en la HOME</Link> 
+          <Grid.Column className='home__left' width={11}>
+            <Feed/>
           </Grid.Column>
+          <Grid.Column className='home__right' width={5}>
+            <div>Usuarios por Seguir</div>
+            </Grid.Column>
         </Grid>
         
       </Container>

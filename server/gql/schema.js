@@ -50,6 +50,14 @@ type tipoCombinado{
     comment: String
 }
 
+type feedPublication{
+    id: ID
+    idUser: User
+    file: String
+    typeFile: String
+    createAd: String
+}
+
 input LoginInput {
     email: String!
     password: String!
@@ -101,11 +109,15 @@ type Query{
     getFollowers( username: String! ): [User]
     getFolloweds( username: String! ): [User]
     getPublications( username: String!): [Publication]
+    getPublicationsFolloweds: [feedPublication]
+
+
     getComments(idPublication: ID!): [commEnt]
     PruebaUser(idUser: ID ): User
     PruebaUserDos(idPublication: ID): [tipoCombinado]
     isLike(idPublication: ID!): Boolean
     countLikes(idPublication: ID!): Int
+
 }
 
 `;
