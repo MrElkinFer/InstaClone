@@ -72,10 +72,31 @@ async function getFolloweds(username){
     return followedsList;
 }
 
+async function getNotFolloweds(ctx){
+    const users= await User.find().limit(50);
+
+    const userList= [];
+    for await (const user of users){
+        const isFollowed = await Follow.findOne({idUser: ctx.user.id}).where("follow").equals(user._id);
+
+        if(!isFollowed){
+            if(user._id.toString()!== ctx.user.id ){
+                userList.push(user);
+            }
+
+        }
+    }
+    return userList; 
+
+    //console.log(ctx);
+    //return null;
+}
+
 module.exports = {
     follow,
     isFollow,
     unFollow,
     getFollowers,
     getFolloweds,
+    getNotFolloweds,
 };

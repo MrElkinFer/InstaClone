@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Home.scss";
 import Feed from '../../components/Home/Feed';
-
+import UsersNotFolloweds from '../../components/Home/UsersNotFolloweds';
 import { Container, Grid, GridColumn } from 'semantic-ui-react';
 
 
@@ -15,7 +15,7 @@ export default function Home() {
             <Feed/>
           </Grid.Column>
           <Grid.Column className='home__right' width={5}>
-            <div>Usuarios por Seguir</div>
+            <UsersNotFolloweds/>
             </Grid.Column>
         </Grid>
         
